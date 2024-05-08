@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 手機 */
+    .container {
+        width: 100%;
+        height: 100vh;
+        background-color: lightgray;
+        display: flex;
+       
+    }
+
+    .flex-container {
+        width: 95%;
+        height: 95vh;
+        background-color: gray;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+       
+
+    }
+
+    .item {
+        width: 80% ;
+        height: 15%;
+        background-color: gold;
+        margin: auto;
+    }
+
+    .item > img {
+        width: 100%;
+        height: 100%;
+    }
+
+     /* 手機 */
+     .container {
+        width: 100%;
+        height: 100vh;
+        background-color: lightgray;
+        display: flex;
+       
+    }
+
+    .flex-container {
+        width: 95%;
+        height: 95vh;
+        background-color: gray;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+
+    .item {
+        width: 80% ;
+        height: 15%;
+        background-color: gold;
+        margin: auto;
+    }
+
+    .item > img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 平板 */
+    @media screen and (min-width:768px) {
+        .item {
+            width: 45%;
+            height: 30%;
+        }
+    }
+
+    /* 電腦 */
+    @media screen and (min-width:1024px) {
+        .item {
+            width: 30%;
+            height: 20%;
+        }
+    }
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="flex-container">
+            <div class="item">
+                <img src="https://picsum.photos/id/23/600/400" alt="">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/24/600/400" alt="">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/25/600/400" alt="">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/26/600/400" alt="">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/27/600/400" alt="">
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/id/28/600/400" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
