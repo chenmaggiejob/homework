@@ -18,19 +18,26 @@
 
 .content-s {
     width: 95%;
-    height: 80vh;
+    height: 100%;
     margin: auto;
+    background-color: rgb(251, 251, 251);
 }
 
 .content-cus {
     width: 95%;
-    height: 45vh;
+    margin: auto;
+    background-color: rgb(251, 251, 251);
+}
+
+.content-header {
+    width: 95%;
     margin: auto;
 }
 
 .content-footer {
     width: 95%;
     margin: auto;
+    background-color: rgb(129, 216, 208);
 }
 
 iframe {
