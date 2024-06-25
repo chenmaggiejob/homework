@@ -2,36 +2,45 @@
     box-sizing: border-box;
     font-family: 'times new roman';
 }
+
 .container-nav>.row {
-    background-color: rgb(129, 216, 208);  
+    background-color: rgb(129, 216, 208);
     width: 100%;
     margin: auto;
 }
+
 .container-nav {
     width: 95%;
     /* background-color: rgb(129, 216, 208);   */
     margin: auto;
     margin-top: 20px;
-   } 
+}
 
-   .content-s {
+.content-s {
     width: 95%;
-    height: 70vh;
+    height: 80vh;
     margin: auto;
-   }
+  background-color: rgb(129, 216, 208);   
+}
 
-   iframe {
+.content-cus {
+    width: 95%;
+    height: 45vh;
+    margin: auto;
+}
+
+.content-footer {
+    width: 95%;
+    margin: auto;
+}
+
+iframe {
     /* width="560" height="315"  */
     width: 100%;
     height: 60vh;
-   }
+}
 
-   .card-title {
+.card-title {
     font-size: 18px;
     font-weight: bold;
-   }
-
-
-
-
-
+}
