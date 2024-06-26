@@ -54,10 +54,17 @@ iframe {
 .card {
     width: 400px;
     margin: auto;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
 }
+
 .content-video {
+    width: 95%;
+    margin: auto;
+    background-color: rgb(129, 216, 208);
+}
+
+.content-youtube {
     width: 95%;
     margin: auto;
 }
