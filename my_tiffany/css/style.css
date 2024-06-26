@@ -68,3 +68,7 @@ iframe {
     width: 95%;
     margin: auto;
 }
+
+.carousel-item >img {
+    width: 92%;
+}
