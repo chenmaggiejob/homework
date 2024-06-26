@@ -50,3 +50,14 @@ iframe {
     font-size: 18px;
     font-weight: bold;
 }
+
+.card {
+    width: 400px;
+    margin: auto;
+    justify-content:space-between;
+    align-items: center;
+}
+.content-video {
+    width: 95%;
+    margin: auto;
+}
