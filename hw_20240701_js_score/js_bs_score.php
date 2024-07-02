@@ -1,3 +1,37 @@
+<?php
+function dd($data)
+{
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+}
+
+$data = [
+    [
+        'id' => 1,
+        'name' => 'amy',
+        'chinese' => '80',
+        'english' => '81',
+        'math' => '82',
+    ],
+    [
+        'id' => 2,
+        'name' => 'bob',
+        'chinese' => '70',
+        'english' => '71',
+        'math' => '72',
+    ],
+    [
+        'id' => 3,
+        'name' => 'cat',
+        'chinese' => '90',
+        'english' => '81',
+        'math' => '92',
+    ],
+]
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,64 +86,29 @@
                     <td>92</td>
                 </tr> -->
             </tbody>
+            <?php foreach ($data as $key => $value) : ?>
+                <?php
+                $sum = 0;
+                $avg = 0;
+                $sum = $value['chinese'] + $value['english'] + $value['math'];
+                $avg = round(($sum / 3), 2);
+                ?>
+                <tr>
+                <td><?= $value['id'] ?></td>
+                <td><?= $value['name'] ?></td>
+                <td><?= $value['chinese'] ?></td>
+                <td><?= $value['english'] ?></td>
+                <td><?= $value['math'] ?></td>
+                <td><?= $sum ?></td>
+                <td><?= $avg ?></td>
+                </tr>
+
+            <?php endforeach ?>
         </table>
     </div>
 
     <script>
-        //bind
-        const scoreForm = document.getElementById('scoreForm');
-        console.log('scoreForm', scoreForm);
-        let resultText = ' ';
 
-        console.log('resultText', resultText);
-        let date = [
-            {
-                'id': 1,
-                'name': 'amy',
-                'chinese': 80,
-                'english': 81,
-                'math': 82,
-            },
-            {
-                'id': 2,
-                'name': 'bob',
-                'chinese': 70,
-                'english': 71,
-                'math': 72,
-            },
-            {
-                'id': 3,
-                'name': 'cat',
-                'chinese': 90,
-                'english': 91,
-                'math': 92,
-            },
-        ];
-        
-        
-        
-        date.forEach(function (value, key) {
-            let sum = 0;
-            let avg = 0;
-            sum = value['chinese'] + value['english'] + value['math'];
-            avg = sum / 3;
-
-            resultText = resultText + `
-                <tr>
-                    <td>${value['id']}</td>
-                    <td>${value['name']}</td>
-                    <td>${value['chinese']}</td>
-                    <td>${value['english']}</td>
-                    <td>${value['math']}</td>
-                    <td>${sum}</td>
-                    <td>${avg}</td>
-                </tr>
-        `
-            console.log('value', value);
-            console.log('key', key);
-        });
-
-        scoreForm.innerHTML = resultText;
 
     </script>
 </body>
