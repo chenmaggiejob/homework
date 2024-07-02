@@ -85,10 +85,14 @@
                 'math': 92,
             },
         ];
-
+        
+        
+        
         date.forEach(function (value, key) {
-            let sum = value['chinese'] + value['english'] + value['math'];
-            let avg = sum / 3;
+            let sum = 0;
+            let avg = 0;
+            sum = value['chinese'] + value['english'] + value['math'];
+            avg = sum / 3;
 
             resultText = resultText + `
                 <tr>
@@ -99,7 +103,6 @@
                     <td>${value['math']}</td>
                     <td>${sum}</td>
                     <td>${avg}</td>
-
                 </tr>
         `
             console.log('value', value);
