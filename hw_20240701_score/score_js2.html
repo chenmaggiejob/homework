@@ -30,27 +30,7 @@
                 </tr>
             </thead>
             <tbody id="scoreForm">
-                <!-- <tr>
-                    <td>1</td>
-                    <td>amy</td>
-                    <td>80</td>
-                    <td>81</td>
-                    <td>82</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>bob</td>
-                    <td>70</td>
-                    <td>71</td>
-                    <td>72</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>cat</td>
-                    <td>90</td>
-                    <td>91</td>
-                    <td>92</td>
-                </tr> -->
+
             </tbody>
         </table>
     </div>
@@ -62,7 +42,7 @@
         let resultText = ' ';
 
         console.log('resultText', resultText);
-        let date = [
+        let data = [
             {
                 'id': 1,
                 'name': 'amy',
@@ -81,19 +61,30 @@
                 'id': 3,
                 'name': 'cat',
                 'chinese': 90,
-                'english': 91,
+                'english': 80,
                 'math': 92,
             },
+
         ];
-        
-        
-        
-        date.forEach(function (value, key) {
+
+        let newData = data;
+
+        newData.forEach(function (value, key) {
             let sum = 0;
             let avg = 0;
             sum = value['chinese'] + value['english'] + value['math'];
             avg = sum / 3;
+            // avg = avg.toFixed(2);
+            avg = Math.round(avg * 100) / 100;
 
+            newData[key]['sum'] = sum;
+            newData[key]['avg'] = avg;
+        });
+
+        console.log('data', data);
+        console.log('newData', newData);
+
+        newData.forEach(function (value, key) {
             resultText = resultText + `
                 <tr>
                     <td>${value['id']}</td>
@@ -101,14 +92,11 @@
                     <td>${value['chinese']}</td>
                     <td>${value['english']}</td>
                     <td>${value['math']}</td>
-                    <td>${sum}</td>
-                    <td>${avg}</td>
+                    <td>${value['sum']}</td>
+                    <td>${value['avg']}</td>
                 </tr>
-        `
-            console.log('value', value);
-            console.log('key', key);
+            `;
         });
-
         scoreForm.innerHTML = resultText;
 
     </script>
