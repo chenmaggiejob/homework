@@ -25,6 +25,8 @@
                     <th>chinese</th>
                     <th>english</th>
                     <th>math</th>
+                    <th>total</th>
+                    <th>avg</th>
                 </tr>
             </thead>
             <tbody id="scoreForm">
@@ -85,6 +87,9 @@
         ];
 
         date.forEach(function (value, key) {
+            let total = value['chinese'] + value['english'] + value['math'];
+            let avg = total / 3;
+
             resultText = resultText + `
                 <tr>
                     <td>${value['id']}</td>
@@ -92,6 +97,9 @@
                     <td>${value['chinese']}</td>
                     <td>${value['english']}</td>
                     <td>${value['math']}</td>
+                    <td>${total}</td>
+                    <td>${avg}</td>
+
                 </tr>
         `
             console.log('value', value);
