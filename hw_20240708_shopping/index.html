@@ -11,6 +11,7 @@
     <style>
         td {
             vertical-align: middle;
+            text-align: center;
         }
     </style>
 </head>
@@ -93,13 +94,12 @@
                         <span style="color: brown; font-weight: bold;">新発売</span><br>
                         <span style="font-weight: 800;">ロマンくんのスムージーパフェ 〜お濃茶&ミルク〜</span>
                     </td>
+                    <td>1,155</td>
                     <td>
-                        ￥1,155<br>
+                        <input id="item1Count" type="number" class="form-control" name="" value="0" data-price="1155"
+                            min="0" max="10">
                     </td>
-                    <td>
-                        <input type="text" class="form-control" id="text" placeholder="数量" name="text">
-                    </td>
-                    <td>￥1,155</td>
+                    <td id="item1Total">0</td>
                     <td>
                         <div class="d-grid">
                             <button type="button" class="btn btn-danger btn-block">削除</button>
@@ -117,11 +117,12 @@
                         <span style="color: brown; font-weight: bold;">新発売</span><br>
                         <span style="font-weight: 800;">レモンケーク・ア・ラ・モード</span>
                     </td>
-                    <td>￥1,760</td>
+                    <td>1,760</td>
                     <td>
-                        <input type="text" class="form-control" id="text" placeholder="数量" name="text">
+                        <input id="item2Count" type="number" class="form-control" name="" value="0" data-price="1760"
+                            min="0" max="10">
                     </td>
-                    <td>￥1,760</td>
+                    <td id="item2Total">0</td>
                     <td>
                         <div class="d-grid">
                             <button type="button" class="btn btn-danger btn-block">削除</button>
@@ -138,13 +139,14 @@
                         <span style="color:blue; font-weight: bold;">期間限定</span><br>
                         <span style="font-weight:bold;">夏にぴったり！甘さ控えめの「涼茶の菓」</span><br>
                         <span style="color: green; font-weight:bold;">8枚入</span>
-                        
+
                     </td>
-                    <td>￥1,296</td>
+                    <td>1,296</td>
                     <td>
-                        <input type="text" class="form-control" id="text" placeholder="数量" name="text">
+                        <input id="item3Count" type="number" class="form-control" name="" value="0" data-price="1296"
+                            min="0" max="10">
                     </td>
-                    <td>￥1,296</td>
+                    <td id="item3Total">0</td>
                     <td>
                         <div class="d-grid">
                             <button type="button" class="btn btn-danger btn-block">削除</button>
@@ -158,14 +160,15 @@
                         <img src="./image/2023SS-ntck.jpg" alt="" class="img-fluid">
                     </td>
                     <td>
-                        <span style="color: blue; font-weight: bold;">新発売</span><br>
+                        <span style="color: blue; font-weight: bold;">期間限定</span><br>
                         <span style="font-weight: 800;">お濃茶デセール仕立て 夏茶の菓</span>
                     </td>
                     <td>￥700</td>
                     <td>
-                        <input type="text" class="form-control" id="text" placeholder="数量" name="text">
+                        <input id="item4Count" type="number" class="form-control" name="" value="0" data-price="700"
+                            min="0" max="10">
                     </td>
-                    <td>￥700</td>
+                    <td id="item4Total">0</td>
                     <td>
                         <div class="d-grid">
                             <button type="button" class="btn btn-danger btn-block">削除</button>
@@ -184,19 +187,83 @@
                     </td>
                     <td>￥896</td>
                     <td>
-                        <input type="text" class="form-control" id="text" placeholder="数量" name="text">
+                        <input id="item5Count" type="number" class="form-control" name="" value="0" data-price="896"
+                            min="0" max="10">
                     </td>
-                    <td>￥896</td>
+                    <td id="item5Total">0</td>
                     <td>
                         <div class="d-grid">
                             <button type="button" class="btn btn-danger btn-block">削除</button>
                         </div>
                     </td>
                 </tr>
-
             </tbody>
         </table>
+        <div class="h-50">
+            <span style="font-size: larger;font-weight: bold;">小計：5,000円（税込・通常送料）</span>
+            <span id="resultSpan">0</span>
+        </div>
+        <div style="height: 100px;"></div>
     </div>
+
+    <script>
+
+        const item1Count = document.getElementById('item1Count');
+        const item1Total = document.getElementById('item1Total');
+        const item2Count = document.getElementById('item2Count');
+        const item2Total = document.getElementById('item2Total');
+        const item3Count = document.getElementById('item3Count');
+        const item3Total = document.getElementById('item3Total');
+        const item4Count = document.getElementById('item4Count');
+        const item4Total = document.getElementById('item4Total');
+        const item5Count = document.getElementById('item5Count');
+        const item5Total = document.getElementById('item5Total');
+
+        item1Count.addEventListener('change', function () {
+            console.log('change ok');
+            let getDataPrice = Number(this.getAttribute('data-price'));
+            let getNumber = Number(this.value);
+            let tmpTotal = getDataPrice * getNumber;
+            item1Total.innerText = tmpTotal;
+        });
+
+        item2Count.addEventListener('change', function () {
+            console.log('change ok');
+            let getDataPrice = Number(this.getAttribute('data-price'));
+            let getNumber = Number(this.value);
+            let tmpTotal = getDataPrice * getNumber;
+            item2Total.innerText = tmpTotal;
+        });
+
+        item3Count.addEventListener('change', function () {
+            console.log('change ok');
+            let getDataPrice = Number(this.getAttribute('data-price'));
+            let getNumber = Number(this.value);
+            let tmpTotal = getDataPrice * getNumber;
+            item3Total.innerText = tmpTotal;
+        });
+
+        item4Count.addEventListener('change', function () {
+            console.log('change ok');
+            let getDataPrice = Number(this.getAttribute('data-price'));
+            let getNumber = Number(this.value);
+            let tmpTotal = getDataPrice * getNumber;
+            item4Total.innerText = tmpTotal;
+        });
+
+        item5Count.addEventListener('change', function () {
+            console.log('change ok');
+            let getDataPrice = Number(this.getAttribute('data-price'));
+            let getNumber = Number(this.value);
+            let tmpTotal = getDataPrice * getNumber;
+            item5Total.innerText = tmpTotal;
+        });
+
+
+
+    </script>
+
+
 
 </body>
 
