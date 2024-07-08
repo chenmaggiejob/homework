@@ -214,8 +214,6 @@
     </div>
 
     <script>
-
-        
         const item1Count = document.getElementById('item1Count');
         const item1Total = document.getElementById('item1Total');
         const item2Count = document.getElementById('item2Count');
@@ -226,61 +224,66 @@
         const item4Total = document.getElementById('item4Total');
         const item5Count = document.getElementById('item5Count');
         const item5Total = document.getElementById('item5Total');
+        const originPrice = document.getElementById('originPrice');
+        const discountPrice = document.getElementById('discountPrice');
 
+        let totalprice = 0;
+        let cnn = 0;
 
-
-
-
+        // 商品1
         item1Count.addEventListener('change', function () {
-            console.log('change ok');
-            let getDataPrice = Number(this.getAttribute('data-price'));
-            let getNumber = Number(this.value);
-            let tmpTotal = getDataPrice * getNumber;
-            item1Total.innerText = tmpTotal;
-
+            updateItemTotal(item1Count, item1Total);
         });
 
+        // 商品2
         item2Count.addEventListener('change', function () {
-            console.log('change ok');
-            let getDataPrice = Number(this.getAttribute('data-price'));
-            let getNumber = Number(this.value);
-            let tmpTotal = getDataPrice * getNumber;
-            item2Total.innerText = tmpTotal;
-
+            updateItemTotal(item2Count, item2Total);
         });
 
+        // 商品3
         item3Count.addEventListener('change', function () {
-            console.log('change ok');
-            let getDataPrice = Number(this.getAttribute('data-price'));
-            let getNumber = Number(this.value);
-            let tmpTotal = getDataPrice * getNumber;
-            item3Total.innerText = tmpTotal;
-
+            updateItemTotal(item3Count, item3Total);
         });
 
+        // 商品4
         item4Count.addEventListener('change', function () {
-            console.log('change ok');
-            let getDataPrice = Number(this.getAttribute('data-price'));
-            let getNumber = Number(this.value);
-            let tmpTotal = getDataPrice * getNumber;
-            item4Total.innerText = tmpTotal;
-
+            updateItemTotal(item4Count, item4Total);
         });
 
+        // 商品5
         item5Count.addEventListener('change', function () {
-            console.log('change ok');
-            let getDataPrice = Number(this.getAttribute('data-price'));
-            let getNumber = Number(this.value);
-            let tmpTotal = getDataPrice * getNumber;
-            item5Total.innerText = tmpTotal;
-
+            updateItemTotal(item5Count, item5Total);
         });
 
-       
+        function updateItemTotal(countInput, totalElement) {
+            let getDataPrice = Number(countInput.getAttribute('data-price'));
+            let getNumber = Number(countInput.value);
+            let tmpTotal = getDataPrice * getNumber;
+            totalElement.innerText = tmpTotal;
 
+            updateTotalPrice();
+        }
 
+        function updateTotalPrice() {
+            totalprice = 0;
+            totalprice += Number(item1Count.value) * Number(item1Count.getAttribute('data-price'));
+            totalprice += Number(item2Count.value) * Number(item2Count.getAttribute('data-price'));
+            totalprice += Number(item3Count.value) * Number(item3Count.getAttribute('data-price'));
+            totalprice += Number(item4Count.value) * Number(item4Count.getAttribute('data-price'));
+            totalprice += Number(item5Count.value) * Number(item5Count.getAttribute('data-price'));
 
+            // 根据总价计算折扣
+            if (totalprice > 5000) {
+                cnn = Math.round(totalprice - totalprice * 0.7);
 
+            } else {
+                cnn = 0;
+            }
+
+            // 更新页面显示的原价和折扣价
+            originPrice.innerText = totalprice;
+            discountPrice.innerText = cnn;
+        }
     </script>
 
 
