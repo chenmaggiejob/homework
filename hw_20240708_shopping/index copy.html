@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        td {
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <div class="">
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                </div>
+
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./image/newopen_kamikatsura.jpg" alt="" class="d-block w-100 img-fluid">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./image/240701_lemonalamode_TOP.jpg" alt="" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./image/240701_romankunpafe_TOP.jpg" alt="" class="d-block w-100">
+                    </div>
+                </div>
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-1">
+            <h2 class="bg-black" style="color: white;padding-left: 12px; ">京都&emsp;北山</h2>
+            <p>世界の食を見つめ、京都でモノづくりをする。
+                京都の流儀で、世界へおいしさを発信する。
+                私たちが生まれ育った京都には、さまざまなものを受け入れ、
+                本質を見きわめ、新たな価値「ほんまもん」に変えていく文化があります。
+                この文化に学びながら、私たちの思いを事業や商品に変えていくための確かな指針、
+                それが京都クオリティ。
+
+                おいしさの原点ともいえる「素材」にこだわる。
+                京都に受け継がれてきた繊細な匠の「技」を極める。
+                季節の趣に寄り添う「心」でおもてなしをする。
+
+                この、素材、技、心から生まれてくる京ならではの商品が醸し出す品質。
+                そして、それを生み出すために、永年培い洗練してきた私たち固有の技術。
+                いわば「世界の本物」を「京都のほんまもん」にしつらえる力です。
+
+
+                それが、「京都クオリティ」というマールブランシュの「おいしさ」の考え方です。</p>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th colspan="2">商品名</th>
+                    <th>価格（税込）</th>
+                    <th>数量</th>
+                    <th>小計（税込）</th>
+                    <th>削除</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- item1 -->
+                <tr class>
+                    <td class="w-25 h-25">
+                        <img src="./image/240701_romankunpafe_TOP.jpg" alt="" class="img-fluid">
+                    </td>
+                    <td>
+                        <span style="color: brown; font-weight: bold;">新発売</span>|
+                        <span style="color:blue; font-weight: bold;">期間限定</span><br>
+                        <span style="font-weight: 800;">ロマンくんのスムージーパフェ 〜お濃茶&ミルク〜</span>
+                    </td>
+                    <td>￥1,155</td>
+                    <td>
+                        <input id="item1Count" type="number" class="form-control" name="" value="0" data-price="1155"
+                            min="0" max="10">
+                    </td>
+                    <td id="item1Total">0</td>
+                    <td>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-danger btn-block">削除</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- item2 -->
+                <tr class>
+                    <td class="w-25 h-25">
+                        <img src="./image/240701_lemonalamode_TOP.jpg" alt="" class="img-fluid">
+                    </td>
+                    <td>
+                        <span style="color: brown; font-weight: bold;">新発売</span>|
+                        <span style="color:blue; font-weight: bold;">期間限定</span><br>
+                        <span style="font-weight: 800;">レモンケーク・ア・ラ・モード</span>
+                    </td>
+                    <td>￥1,760</td>
+                    <td>
+                        <input id="item2Count" type="number" class="form-control" name="" value="0" data-price="1760"
+                            min="0" max="10">
+                    </td>
+                    <td id="item2Total">0</td>
+                    <td>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-danger btn-block">削除</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- item3 -->
+                <tr class>
+                    <td class="w-25 h-25">
+                        <img src="./image/2020SS_CK_2.jpg" alt="" class="img-fluid">
+                    </td>
+                    <td>
+                        <span style="color:blue; font-weight: bold;">期間限定</span><br>
+                        <span style="font-weight:bold;">夏にぴったり！甘さ控えめの「涼茶の菓」</span><br>
+                        <span style="color: green; font-weight:bold;">8枚入</span>
+
+                    </td>
+                    <td>￥1,296</td>
+                    <td>
+                        <input id="item3Count" type="number" class="form-control" name="" value="0" data-price="1296"
+                            min="0" max="10">
+                    </td>
+                    <td id="item3Total">0</td>
+                    <td>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-danger btn-block">削除</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- item4 -->
+                <tr class>
+                    <td class="w-25 h-25">
+                        <img src="./image/2023SS-ntck.jpg" alt="" class="img-fluid">
+                    </td>
+                    <td>
+                        <span style="color: blue; font-weight: bold;">期間限定</span><br>
+                        <span style="font-weight: 800;">お濃茶デセール仕立て 夏茶の菓</span>
+                    </td>
+                    <td>￥700</td>
+                    <td>
+                        <input id="item4Count" type="number" class="form-control" name="" value="0" data-price="700"
+                            min="0" max="10">
+                    </td>
+                    <td id="item4Total">0</td>
+                    <td>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-danger btn-block">削除</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- item5 -->
+                <tr class>
+                    <td class="w-25 h-25">
+                        <img src="./image/2023SS-mnck.jpg" alt="" class="img-fluid">
+                    </td>
+                    <td>
+                        <span style="color:blue; font-weight: bold;">期間限定</span><br>
+                        <span style="font-weight: 800;">お濃茶フォンダンショコラ ミルク生茶の菓</span>
+                    </td>
+                    <td>￥896</td>
+                    <td>
+                        <input id="item5Count" type="number" class="form-control" name="" value="0" data-price="896"
+                            min="0" max="10">
+                    </td>
+                    <td id="item5Total">0</td>
+                    <td>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-danger btn-block">削除</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="result h-50 text-end">
+            <span style="font-weight: bold;">小計：
+                <span id="originPrice" style="color: blue; font-weight: bold;">0</span>
+                <span>&nbsp;丹（税込・通常送料）</span>
+        </div>
+
+        <div class="text-end">
+            <span style="font-weight: bold;">購買稅込&nbsp;</span>
+            <span style="color: blue; font-weight: bold;">5000</span>
+            <span>&nbsp;丹以上，</span>
+            <span style="color:red; font-weight: bold;">10％オフ</span>
+        </div>
+
+        <div class="text-end" id="difference" style="display: none;">
+            <span style="font-weight: bold;">あと</span>
+            <span id="basicPrice" style="color:red; font-weight: bold;">0</span>
+            <span style="font-weight: bold;">&nbsp;丹&nbsp;しかないよ、さあ！</span>
+        </div>
+
+        <!-- <div class="text-end" id="difference" style="display: none;">
+            <span style="font-weight: bold;">あと</span>
+            <span id="basicPrice" style="color:red; font-weight: bold;">0</span>
+            <span style="font-weight: bold;">&nbsp;丹&nbsp;しかないよ、さあ！</span>
+        </div> -->
+
+        <div id="bonus" class="text-end" style="display: none;">
+            <span style="font-weight: bold;">割引後の金額：</span>
+            <span id="discountPrice" style="color: blue; font-weight: bold;">0</span>
+            <span style="font-weight: bold;">&nbsp;丹</span>
+        </div>
+
+
+
+        <div style="height: 100px;"></div>
+    </div>
+
+    <script>
+        const item1Count = document.getElementById('item1Count');
+        const item1Total = document.getElementById('item1Total');
+        const item2Count = document.getElementById('item2Count');
+        const item2Total = document.getElementById('item2Total');
+        const item3Count = document.getElementById('item3Count');
+        const item3Total = document.getElementById('item3Total');
+        const item4Count = document.getElementById('item4Count');
+        const item4Total = document.getElementById('item4Total');
+        const item5Count = document.getElementById('item5Count');
+        const item5Total = document.getElementById('item5Total');
+        const originPrice = document.getElementById('originPrice');
+        const bonus = document.getElementById('bonus');
+        const difference = document.getElementById('difference');
+        const basicPrice = document.getElementById('basicPrice');
+
+        // const originPrice1 = document.getElementById('originPrice1');
+        const discountPrice = document.getElementById('discountPrice');
+
+        let totalprice = 0;
+        let disc = 0;
+        let basicprice = 5000;
+        let dprice = 0;
+
+        // item1
+        item1Count.addEventListener('change', function () {
+            updateItemTotal(item1Count, item1Total);
+        });
+
+        // // item2
+        item2Count.addEventListener('change', function () {
+            updateItemTotal(item2Count, item2Total);
+        });
+
+        // // item3
+        item3Count.addEventListener('change', function () {
+            updateItemTotal(item3Count, item3Total);
+        });
+
+        // // item4
+        item4Count.addEventListener('change', function () {
+            updateItemTotal(item4Count, item4Total);
+        });
+
+        // // item5
+        item5Count.addEventListener('change', function () {
+            updateItemTotal(item5Count, item5Total);
+        });
+
+        function updateItemTotal(countInput, totalElement) {
+            let getDataPrice = Number(countInput.getAttribute('data-price'));
+            let getNumber = Number(countInput.value);
+            let tmpTotal = getDataPrice * getNumber;
+
+            // 只有在 tmpTotal >0 時才顯示 "￥"
+            if (tmpTotal > 0) {
+                totalElement.innerText = '￥' + tmpTotal;
+            } else {
+                totalElement.innerText = tmpTotal; // 如果 <=0 則不顯示￥
+            }
+
+            updateTotalPrice();
+        }
+
+        function updateTotalPrice() {
+            totalprice = 0;
+            totalprice += Number(item1Count.value) * Number(item1Count.getAttribute('data-price'));
+            totalprice += Number(item2Count.value) * Number(item2Count.getAttribute('data-price'));
+            totalprice += Number(item3Count.value) * Number(item3Count.getAttribute('data-price'));
+            totalprice += Number(item4Count.value) * Number(item4Count.getAttribute('data-price'));
+            totalprice += Number(item5Count.value) * Number(item5Count.getAttribute('data-price'));
+            // 根據總價計算折扣
+            if (totalprice >= 5000) {
+                disc = Math.round(totalprice * 0.9);
+                originPrice.innerText = totalprice;
+                originPrice.style.textDecoration = 'line-through'; // 添加删除线样式
+                discountPrice.innerText = disc;
+                // 显示折扣相关信息，隐藏差额信息
+                bonus.style.display = "block";
+                difference.style.display = "none";
+            } else {
+                // 如果不满足5000丹的条件，则显示原价，隐藏折扣相关信息
+                originPrice.innerText = totalprice;
+                originPrice.style.textDecoration = 'none'; // 移除删除线样式
+                discountPrice.innerText = 0;
+                bonus.style.display = "none";
+                // 显示差额信息
+                difference.style.display = "block";
+                basicPrice.innerText = 5000 - totalprice;
+            }
+
+            // 更新頁面顯示的原價和折扣價
+            originPrice.innerText = totalprice;
+            discountPrice.innerText = disc;
+            // basicPrice.innerText = dprice;
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
