@@ -217,12 +217,6 @@
             <span style="font-weight: bold;">&nbsp;丹&nbsp;しかないよ、さあ！</span>
         </div>
 
-        <!-- <div class="text-end" id="difference" style="display: none;">
-            <span style="font-weight: bold;">あと</span>
-            <span id="basicPrice" style="color:red; font-weight: bold;">0</span>
-            <span style="font-weight: bold;">&nbsp;丹&nbsp;しかないよ、さあ！</span>
-        </div> -->
-
         <div id="bonus" class="text-end" style="display: none;">
             <span style="font-weight: bold;">割引後の金額：</span>
             <span id="discountPrice" style="color: blue; font-weight: bold;">0</span>
@@ -306,23 +300,28 @@
             totalprice += Number(item4Count.value) * Number(item4Count.getAttribute('data-price'));
             totalprice += Number(item5Count.value) * Number(item5Count.getAttribute('data-price'));
             // 根據總價計算折扣
+
             if (totalprice >= 5000) {
                 disc = Math.round(totalprice * 0.9);
                 originPrice.innerText = totalprice;
                 originPrice.style.textDecoration = 'line-through'; // 添加删除线样式
                 discountPrice.innerText = disc;
-                // 显示折扣相关信息，隐藏差额信息
                 bonus.style.display = "block";
                 difference.style.display = "none";
-            } else {
-                // 如果不满足5000丹的条件，则显示原价，隐藏折扣相关信息
+            } else if (totalprice > 0 && totalprice < 5000) {
                 originPrice.innerText = totalprice;
                 originPrice.style.textDecoration = 'none'; // 移除删除线样式
                 discountPrice.innerText = 0;
                 bonus.style.display = "none";
-                // 显示差额信息
                 difference.style.display = "block";
                 basicPrice.innerText = 5000 - totalprice;
+            } else {
+                // totalprice <= 0 case
+                originPrice.innerText = totalprice;
+                originPrice.style.textDecoration = 'none'; // 移除删除线样式
+                discountPrice.innerText = 0;
+                bonus.style.display = "none";
+                difference.style.display = "none";
             }
 
             // 更新頁面顯示的原價和折扣價
