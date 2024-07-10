@@ -202,17 +202,29 @@
             <span style="font-weight: bold;">小計：
                 <span id="originPrice" style="color: blue; font-weight: bold;">0</span>
                 <span>&nbsp;丹（税込・通常送料）</span>
-                <div id="bonus" style="display: none;">
-                    <span style="font-weight: bold;">購買稅込&nbsp;</span>
-                    <span id="originPrice1" style="color: blue; font-weight: bold;">5000</span>
-                    <span>&nbsp;丹以上，</span>
-                    <span style="color:red; font-weight: bold;">10％オフ，</span>
-                    <span style="font-weight: bold;">割引後の金額：</span>
-                    <span id="discountPrice" style="color: blue; font-weight: bold;">0</span>
-                    <span style="font-weight: bold;">&nbsp;丹</span>
-                </div>
-
         </div>
+
+        <div class="text-end">
+            <span style="font-weight: bold;">購買稅込&nbsp;</span>
+            <span style="color: blue; font-weight: bold;">5000</span>
+            <span>&nbsp;丹以上，</span>
+            <span style="color:red; font-weight: bold;">10％オフ</span>
+        </div>
+
+        <div class="text-end" id="difference" style="display: none;">
+            <span style="font-weight: bold;">あと</span>
+            <span id="basicPrice" style="color:red; font-weight: bold;">0</span>
+            <span style="font-weight: bold;">&nbsp;丹&nbsp;しかないよ、さあ！</span>
+        </div>
+
+        <div id="bonus" class="text-end" style="display: none;">
+            <span style="font-weight: bold;">割引後の金額：</span>
+            <span id="discountPrice" style="color: blue; font-weight: bold;">0</span>
+            <span style="font-weight: bold;">&nbsp;丹</span>
+        </div>
+
+
+
         <div style="height: 100px;"></div>
     </div>
 
@@ -229,12 +241,16 @@
         const item5Total = document.getElementById('item5Total');
         const originPrice = document.getElementById('originPrice');
         const bonus = document.getElementById('bonus');
+        const difference = document.getElementById('difference');
+        const basicPrice = document.getElementById('basicPrice');
 
         // const originPrice1 = document.getElementById('originPrice1');
         const discountPrice = document.getElementById('discountPrice');
 
         let totalprice = 0;
         let disc = 0;
+        let basicprice = 5000;
+        let dprice = 0;
 
         // item1
         item1Count.addEventListener('change', function () {
@@ -283,23 +299,34 @@
             totalprice += Number(item3Count.value) * Number(item3Count.getAttribute('data-price'));
             totalprice += Number(item4Count.value) * Number(item4Count.getAttribute('data-price'));
             totalprice += Number(item5Count.value) * Number(item5Count.getAttribute('data-price'));
-
             // 根據總價計算折扣
-            if (totalprice > 5000) {
+            if (totalprice >= 5000) {
                 disc = Math.round(totalprice * 0.9);
-                // 添加刪除線樣式
-                originPrice.style.textDecoration = 'line-through';
+                originPrice.innerText = totalprice;
+                originPrice.style.textDecoration = 'line-through'; // 顯示刪除線
+                discountPrice.innerText = disc;
                 bonus.style.display = "block";
-            } else {
-                disc = 0;
-                // 移除刪除線樣式
-                originPrice.style.textDecoration = 'none';
+                difference.style.display = "none";
+            } else if (totalprice > 0 && totalprice < 5000) {
+                originPrice.innerText = totalprice;
+                originPrice.style.textDecoration = 'none'; // 不顯示刪除線
+                discountPrice.innerText = 0;
                 bonus.style.display = "none";
+                difference.style.display = "block";
+                basicPrice.innerText = 5000 - totalprice;
+            } else {
+                // totalprice <= 0 case
+                originPrice.innerText = totalprice;
+                originPrice.style.textDecoration = 'none'; // 不顯示刪除線
+                discountPrice.innerText = 0;
+                bonus.style.display = "none";
+                difference.style.display = "none";
             }
 
             // 更新頁面顯示的原價和折扣價
             originPrice.innerText = totalprice;
             discountPrice.innerText = disc;
+            // basicPrice.innerText = dprice;
         }
 
 
