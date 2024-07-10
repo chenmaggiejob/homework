@@ -247,10 +247,11 @@
         // const originPrice1 = document.getElementById('originPrice1');
         const discountPrice = document.getElementById('discountPrice');
 
-        let totalprice = 0;
-        let disc = 0;
-        let basicprice = 5000;
-        let dprice = 0;
+        let totalprice = 0;     //總金額
+        let disc = 0;           //折扣金額
+        let fullprice = 5000;   //滿額設定
+        
+        
 
         // item1
         item1Count.addEventListener('change', function () {
@@ -300,20 +301,20 @@
             totalprice += Number(item4Count.value) * Number(item4Count.getAttribute('data-price'));
             totalprice += Number(item5Count.value) * Number(item5Count.getAttribute('data-price'));
             // 根據總價計算折扣
-            if (totalprice >= 5000) {
+            if (totalprice >= fullprice) {
                 disc = Math.round(totalprice * 0.9);
                 originPrice.innerText = totalprice;
                 originPrice.style.textDecoration = 'line-through'; // 顯示刪除線
                 discountPrice.innerText = disc;
                 bonus.style.display = "block";
                 difference.style.display = "none";
-            } else if (totalprice > 0 && totalprice < 5000) {
+            } else if (totalprice > 0 && totalprice < fullprice) {
                 originPrice.innerText = totalprice;
                 originPrice.style.textDecoration = 'none'; // 不顯示刪除線
                 discountPrice.innerText = 0;
                 bonus.style.display = "none";
                 difference.style.display = "block";
-                basicPrice.innerText = 5000 - totalprice;
+                basicPrice.innerText = fullprice - totalprice;
             } else {
                 // totalprice <= 0 case
                 originPrice.innerText = totalprice;
@@ -326,7 +327,7 @@
             // 更新頁面顯示的原價和折扣價
             originPrice.innerText = totalprice;
             discountPrice.innerText = disc;
-            // basicPrice.innerText = dprice;
+            
         }
 
 
