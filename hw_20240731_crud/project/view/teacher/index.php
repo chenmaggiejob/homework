@@ -34,7 +34,7 @@ $data = $Teachers->getAllSetRank();
             <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
             <div class="text-end">
                 <a class="btn btn-secondary" href="../../api/teacher/rollback.php">RollBack</a>
-                <a class="btn btn-primary" href="">ADD</a>
+                <a class="btn btn-primary" href="../../view/teacher/create.php">ADD</a>
                 <!-- <a class="btn btn-danger" href="../../api/student/rollback.php">rollback</a>
                 <a class="btn btn-success" href="./create.php">Add</a> -->
             </div>
@@ -58,8 +58,8 @@ $data = $Teachers->getAllSetRank();
                             <td><?= $value['mobile'] ?></td>
                             <td><?= $value['rank'] ?></td>
                             <td>
-                                <a class="btn btn-success">Edit</a>
-                                <button class="btn btn-danger">Del</button>
+                                <a class="btn btn-success" href="./edit.php?id=<?= $value['id']; ?>">Edit</a>
+                                <a class="btn btn-danger" href="../../api/teacher/del.php?id=<?= $value['id']; ?>">Del</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

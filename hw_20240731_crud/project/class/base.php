@@ -24,6 +24,12 @@ class DB
         $data = $this->conn->query($sql)->fetchAll(2);
         return $data;
     }
+    //取單筆資料
+    public function getbyID($id)
+    {
+        $sql = "SELECT * FROM `$this->table` WHERE `id` = $id";
+        return $this->conn->query($sql)->fetch(2);
+    }
 
     public function getAllSetRank()
     {
@@ -39,15 +45,32 @@ class DB
         }
         return $tmp;
     }
+    public function update($data)
+    {
+        $id = $data['id'];
+        $sql = "UPDATE `$this->table` SET `name` = '{$data['name']}', `mobile` = '{$data['mobile']}' WHERE `$this->table`.`id` = $id;";
+        // echo $sql;
+        $this->conn->exec($sql);
+        header('Location:http://localhost');
+    }
+
+    public function del($id)
+    {
+        $sql = "DELETE FROM `$this->table` WHERE `$this->table`.`id` = $id";
+        echo $sql;
+        $this->conn->exec($sql);
+        header('Location: http://localhost');
+        exit();
+    }
 
     //清洗資料
     public function rollbackFun()
     {
-        $sql = "TRUNCATE TABLE `test0722`.`teachers`";
+        $sql = "TRUNCATE TABLE `test0722`.`$this->table`";
         $this->conn->query($sql);
 
         $sql = "INSERT INTO 
-                    `teachers` (`id`, `name`, `mobile`) 
+                    `$this->table` (`id`, `name`, `mobile`) 
                 VALUES 
                     (NULL, 'john', '0911-111-111'),
                     (NULL, 'amy', '0922-222-222'),
@@ -61,9 +84,19 @@ class DB
     public function store($data)
     {
         $sql = "INSERT INTO 
-                    `teachers` (`id`, `name`, `mobile`) 
+                    `$this->table` (`id`, `name`, `mobile`) 
                 VALUES 
-                    (NULL, '{$data['name']}', '{$data['mobile']}'),";
+                    (NULL, '{$data['name']}', '{$data['mobile']}')";
+        // echo $sql;
         $this->conn->exec($sql);
+        header('Location: http://localhost/');
+        exit();
     }
+}
+
+function dd($data)
+{
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
 }
