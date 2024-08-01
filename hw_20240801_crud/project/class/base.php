@@ -45,20 +45,6 @@ class DB
         }
         return $tmp;
     }
-
-    //add
-    public function store($data)
-    {
-        $sql = "INSERT INTO 
-                `$this->table` (`id`, `name`, `mobile`) 
-            VALUES 
-                (NULL, '{$data['name']}', '{$data['mobile']}')";
-        // echo $sql;
-        $this->conn->exec($sql);
-        header('Location: http://localhost/');
-        exit();
-    }
-
     public function update($data)
     {
         $id = $data['id'];
@@ -89,6 +75,19 @@ class DB
                     (NULL, 'john', '0911-111-111'),
                     (NULL, 'amy', '0922-222-222'),
                     (NULL, 'bob', '0933-333-333');";
+        $this->conn->exec($sql);
+        header('Location: http://localhost/');
+        exit();
+    }
+
+    //add
+    public function store($data)
+    {
+        $sql = "INSERT INTO 
+                    `$this->table` (`id`, `name`, `mobile`) 
+                VALUES 
+                    (NULL, '{$data['name']}', '{$data['mobile']}')";
+        // echo $sql;
         $this->conn->exec($sql);
         header('Location: http://localhost/');
         exit();
