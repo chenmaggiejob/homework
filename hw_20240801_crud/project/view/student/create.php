@@ -17,7 +17,7 @@
 
     <div class="container mt-3">
         <h3>
-            Students Create
+            Student Create
         </h3>
     </div>
     <div class="container mt-3">

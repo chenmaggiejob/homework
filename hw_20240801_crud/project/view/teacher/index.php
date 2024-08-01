@@ -34,7 +34,7 @@ $data = $Teachers->getAllSetRank();
     </nav>
 
     <div class="container mt-3">
-        <h2>Teachers List</h2>
+        <h2>Teacher List</h2>
         <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
         <div class="text-end">
             <a class="btn btn-secondary" href="../../api/teacher/rollback.php">RollBack</a>
